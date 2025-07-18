@@ -2,7 +2,11 @@
   "name": "@vqueue/sdk",
   "version": "0.1.0",
   "description": "A toolset for Virtual Queue integrations in Node.js",
-  "keywords": ["queue", "sdk", "nodejs"],
+  "keywords": [
+    "queue",
+    "sdk",
+    "nodejs"
+  ],
   "homepage": "https://github.com/animus-coop/virtual-queue-nodejs-sdk#readme",
   "bugs": {
     "url": "https://github.com/animus-coop/virtual-queue-nodejs-sdk/issues"
