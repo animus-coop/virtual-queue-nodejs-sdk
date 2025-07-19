@@ -1,4 +1,4 @@
-import { success, z } from 'zod'
+import { z } from 'zod'
 
 const verificationDataSchema = z.object({
   token: z.uuid(),
@@ -8,11 +8,9 @@ const verificationDataSchema = z.object({
   }),
 })
 
-type VerificationData = z.infer<typeof verificationDataSchema>
-
 const sucessVerificationResultSchema = z.object({
   success: z.literal(true),
-  data: z.object<VerificationData>(),
+  data: verificationDataSchema,
   message: z.string(),
 })
 
