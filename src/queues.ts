@@ -1,5 +1,5 @@
 import { type VerificationResult, parseVerificationResult } from './types.js'
-import { VQueueNetworkError } from './errors.js'
+import { VQueueNetworkError, VQueueError } from './errors.js'
 
 const VERIFY_API_URL = 'https://app.virtual-queue.com/api/v1/verify'
 
@@ -15,6 +15,10 @@ export async function verifyToken(token: string): Promise<VerificationResult> {
     const data = await res.json()
     return parseVerificationResult(data)
   } catch (err: unknown) {
+    if (err instanceof VQueueError) {
+      throw err
+    }
+
     throw new VQueueNetworkError(
       'Network Error at token verfication: ' +
         (err instanceof Error ? err.message : `${err}`),

@@ -1,5 +1,7 @@
 import { z } from 'zod'
 
+import { VQueueError } from './errors.js'
+
 const verificationDataSchema = z.object({
   token: z.uuid(),
   finished_line: z.object({
@@ -31,11 +33,7 @@ export type VerificationResult = z.infer<typeof verificationResultSchema>
 export function parseVerificationResult(input: unknown): VerificationResult {
   const parsed = verificationResultSchema.safeParse(input)
   if (!parsed.success) {
-    console.error(
-      `Error parsing field value: ${JSON.stringify(input, null, 2)}`,
-    )
-    console.error(`Zod error: ${parsed.error.message}`)
-    throw new Error('Invalid field value schema')
+    throw new VQueueError(`Invalid field value schema ${parsed.error.message}`)
   }
 
   return parsed.data as VerificationResult
