@@ -25,3 +25,17 @@ export async function verifyToken(token: string): Promise<VerificationResult> {
     )
   }
 }
+
+export async function safeVerifyToken(
+  token: string,
+): Promise<VerificationResult> {
+  try {
+    return verifyToken(token)
+  } catch (err: unknown) {
+    return {
+      success: false,
+      message:
+        err instanceof Error ? err.message : 'Safe token verification failed.',
+    }
+  }
+}
