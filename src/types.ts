@@ -16,7 +16,7 @@ const sucessVerificationResultSchema = z.object({
 
 const errorVerificationResultSchema = z.object({
   success: z.literal(false),
-  data: z.object<VerificationData>().optional(),
+  data: verificationDataSchema.optional(),
   message: z.string(),
   errorCode: z.number('error_code').int().optional(),
 })
