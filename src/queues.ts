@@ -1,8 +1,11 @@
 import { type VerificationResult, parseVerificationResult } from './types.js'
 import { VQueueNetworkError, VQueueError } from './errors.js'
 import { VERIFY_API_URL } from './config.js'
+import { validateUUID } from './utils.js'
 
 export async function verifyToken(token: string): Promise<VerificationResult> {
+  validateUUID(token)
+
   try {
     const res = await fetch(`${VERIFY_API_URL}?token=${token}`, {
       headers: {
