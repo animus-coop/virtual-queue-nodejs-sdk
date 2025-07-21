@@ -1,1 +1,1 @@
-export { verifyToken } from './queues.js'
+export { verifyToken, safeVerifyToken } from './queues.js'
