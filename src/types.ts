@@ -33,7 +33,7 @@ export type VerificationResult = z.infer<typeof verificationResultSchema>
 export function parseVerificationResult(input: unknown): VerificationResult {
   const parsed = verificationResultSchema.safeParse(input)
   if (!parsed.success) {
-    throw new VQueueError(`Invalid field value schema ${parsed.error.message}`)
+    throw new VQueueError(`Error parsing input: ${parsed.error.message}`)
   }
 
   return parsed.data as VerificationResult
