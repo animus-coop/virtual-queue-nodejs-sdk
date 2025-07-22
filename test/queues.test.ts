@@ -22,7 +22,7 @@ const MOCK_RESPONSE_DATA = {
     data: {},
     message: 'The queue could not be verified.',
     success: false,
-    error_code: 404,
+    error_code: '404',
   },
 }
 
