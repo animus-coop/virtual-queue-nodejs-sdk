@@ -4,9 +4,9 @@ import { VERIFY_API_URL } from './config.js'
 import { validateUUID } from './utils.js'
 
 export async function verifyToken(token: string): Promise<VerificationResult> {
-  validateUUID(token)
-
   try {
+    validateUUID(token)
+
     const res = await fetch(`${VERIFY_API_URL}?token=${token}`, {
       headers: {
         'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ export async function safeVerifyToken(
   token: string,
 ): Promise<VerificationResult> {
   try {
-    return verifyToken(token)
+    return await verifyToken(token)
   } catch (err: unknown) {
     return {
       success: false,
