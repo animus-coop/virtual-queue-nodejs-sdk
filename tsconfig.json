@@ -16,7 +16,7 @@
     "declaration": true,
     "lib": ["es2022"],
     "paths": {
-      "@vqueue/sdk/*": "./src/*"
+      "@vqueue/sdk/*": ["./src/*"]
     }
   },
   "include": ["./src/"]
