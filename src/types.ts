@@ -18,9 +18,9 @@ const sucessVerificationResultSchema = z.object({
 
 const errorVerificationResultSchema = z.object({
   success: z.literal(false),
-  data: z.union([verificationDataSchema, z.object()]).optional(),
+  data: z.union([verificationDataSchema, z.object({})]).optional(),
   message: z.string(),
-  error_code: z.number().int().optional(),
+  error_code: z.string().optional(),
 })
 
 const verificationResultSchema = z.discriminatedUnion('success', [
