@@ -1,0 +1,20 @@
+{
+  "name": "vqueue-express-example",
+  "version": "1.0.0",
+  "description": "Example of how to use VQueue's Node.js SDK with express",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx tsx --watch  src/index.ts"
+  },
+  "dependencies": {
+    "@vqueue/sdk": "^0.1.0",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.1.0"
+  }
+}
