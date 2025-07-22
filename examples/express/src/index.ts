@@ -5,7 +5,7 @@ const app = express()
 
 const port = process.env.PORT || 3000
 
-// Verofy the token at root path, this expects a `token` url query param
+// Verify the token at root path, this expects a `token` url query param
 app.get('/', (req: Request, res: Response) => {
   const token = req.query.token as string
 
