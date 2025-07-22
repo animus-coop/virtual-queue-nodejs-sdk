@@ -45,14 +45,16 @@ describe('Queue token verification', () => {
   })
 
   describe('verifyToken', () => {
-    it('should verify valid token', async () => {
-      await expect(verifyToken(GOOD_TOKEN)).resolves.toBe(
+    it('should respond {success: true} for valid token', async () => {
+      await expect(verifyToken(GOOD_TOKEN)).resolves.toEqual(
         MOCK_RESPONSE_DATA[GOOD_TOKEN],
       )
     })
 
-    it('should throw on bad token', async () => {
-      await expect(verifyToken(BAD_TOKEN)).rejects.toThrow()
+    it('should respond {success: false} for bad token', async () => {
+      await expect(verifyToken(BAD_TOKEN)).resolves.toEqual(
+        MOCK_RESPONSE_DATA[BAD_TOKEN],
+      )
     })
   })
 })

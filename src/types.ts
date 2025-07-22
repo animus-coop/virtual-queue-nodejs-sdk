@@ -5,8 +5,8 @@ import { VQueueError } from './errors.js'
 const verificationDataSchema = z.object({
   token: z.uuid(),
   finished_line: z.object({
-    finished_at: z.date(),
-    ingressed_at: z.date(),
+    finished_at: z.iso.datetime(),
+    ingressed_at: z.iso.datetime(),
   }),
 })
 
@@ -18,9 +18,9 @@ const sucessVerificationResultSchema = z.object({
 
 const errorVerificationResultSchema = z.object({
   success: z.literal(false),
-  data: verificationDataSchema.optional(),
+  data: z.union([verificationDataSchema, z.object()]).optional(),
   message: z.string(),
-  errorCode: z.number('error_code').int().optional(),
+  error_code: z.number().int().optional(),
 })
 
 const verificationResultSchema = z.discriminatedUnion('success', [
