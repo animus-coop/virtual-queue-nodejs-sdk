@@ -10,7 +10,7 @@
     "start": "npx tsx --watch  src/index.ts"
   },
   "dependencies": {
-    "@vqueue/sdk": "^0.1.1",
+    "@vqueue/sdk": "^0.1",
     "express": "^5.1.0"
   },
   "devDependencies": {
