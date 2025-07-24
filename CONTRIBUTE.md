@@ -13,5 +13,5 @@ npm install
 2. Configure the pre-commit hooks
 
 ```sh
-npx simple-git-hooks
+npm run prepare
 ```
