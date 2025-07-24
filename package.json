@@ -1,6 +1,6 @@
 {
   "name": "@vqueue/sdk",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A toolset for Virtual Queue integrations in Node.js",
   "keywords": [
     "queue",
