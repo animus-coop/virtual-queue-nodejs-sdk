@@ -20,7 +20,11 @@ jobs:
         with:
           registry-url: 'https://registry.npmjs.org/'
           node-version: '24'
-      - run: npm ci
-      - run: npm publish --provenance --access public
+      - name: Clean install
+        run: npm ci
+      - name: Build Package
+        run: npm run build
+      - name: Publish package:
+        run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
