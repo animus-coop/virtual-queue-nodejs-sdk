@@ -3,6 +3,17 @@ import { VQueueNetworkError, VQueueError } from './errors.js'
 import { VERIFY_API_URL } from './config.js'
 import { validateUUID } from './utils.js'
 
+/**
+ * Verifies the queue token with Virtual Queue's API.
+ *
+ * @param token UUID value of the token to be verified.
+ * @returns The response from the API. The field `success`
+ * tells if the token is valid or not
+ *
+ * @throws `VQueueInvalidUUID` if the provided token is not valid UUIDv4.
+ * @throws `VQueueNetworkError` if there is any connectivity issue.
+ * @throws `VQueueError` in case of any unexpected error.
+ */
 export async function verifyToken(token: string): Promise<VerificationResult> {
   try {
     validateUUID(token)
@@ -28,6 +39,15 @@ export async function verifyToken(token: string): Promise<VerificationResult> {
   }
 }
 
+/**
+ * Verifies the queue token with Virtual Queue's API,
+ * but doesn't throw any exception in case of errors.
+ *
+ * @param token UUID value of the token to be verified.
+ * @returns The response from the API if there are no errors.
+ * In case of an error the field `success` is set to `false`
+ * and the reason is put in the field `message`.
+ */
 export async function safeVerifyToken(
   token: string,
 ): Promise<VerificationResult> {
