@@ -38,3 +38,7 @@ export function parseVerificationResult(input: unknown): VerificationResult {
 
   return parsed.data as VerificationResult
 }
+
+export interface VQueueVerificationConfig {
+  verificationURL: string
+}
