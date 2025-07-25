@@ -10,7 +10,7 @@ app.get('/', (req: Request, res: Response) => {
   const token = req.query.token as string
 
   // Call `verifyToken`
-  verifyToken(token)
+  verifyToken(token, { verificationURL: 'http://localhost:8000' })
     // If there is no problem with the API request
     // you get a `VerificationResult` that tells you
     // if the token is valid or not
